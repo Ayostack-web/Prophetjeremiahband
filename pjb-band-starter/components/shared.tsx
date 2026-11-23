@@ -1,15 +1,15 @@
 import type { ReactNode } from "react";
 
 export const photos = {
-  about: "https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=1100&q=85",
-  eventOne: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=900&q=85",
-  eventTwo: "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=900&q=85",
-  eventThree: "https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?auto=format&fit=crop&w=900&q=85",
-  galleryOne: "https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=900&q=85",
-  galleryTwo: "https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=900&q=85",
-  galleryThree: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=900&q=85",
-  galleryFour: "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=900&q=85",
-  library: "https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=1100&q=85",
+  about: "/images/1784175169661.jpg",
+  eventOne: "/images/tribes_260.jpg",
+  eventTwo: "/images/tribes_261.jpg",
+  eventThree: "/images/1784175169661.jpg",
+  galleryOne: "/images/1784175169661.jpg",
+  galleryTwo: "/images/tribes_260.jpg",
+  galleryThree: "/images/tribes_261.jpg",
+  galleryFour: "/images/1784175169661.jpg",
+  library: "/images/tribes_261.jpg",
 };
 
 export function Photo({ src, className = "", label }: { src: string; className?: string; label?: string }) {

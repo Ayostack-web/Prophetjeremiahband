@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState, type FormEvent } from "react";
+import { useEffect, useMemo, useState, type FormEvent } from "react";
 import {
   ArrowRight,
   ArrowUpRight,
@@ -16,6 +16,7 @@ import {
   ShieldCheck,
   Sparkles,
   Youtube,
+  X,
 } from "lucide-react";
 import { Photo, SectionLabel, SectionTitle, photos } from "./shared";
 
@@ -40,6 +41,22 @@ export function MainSections() {
   const [galleryFilter, setGalleryFilter] = useState("All");
   const [email, setEmail] = useState("");
   const [newsletterMessage, setNewsletterMessage] = useState("");
+  const [selectedGalleryItem, setSelectedGalleryItem] = useState<(typeof galleryItems)[number] | null>(null);
+
+  useEffect(() => {
+    if (!selectedGalleryItem) return;
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setSelectedGalleryItem(null);
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "";
+    };
+  }, [selectedGalleryItem]);
 
   const filteredGallery = useMemo(
     () => galleryFilter === "All" ? galleryItems : galleryItems.filter((item) => item.category === galleryFilter),
@@ -183,9 +200,28 @@ export function MainSections() {
           {["All", "Worship", "Fellowship", "Events"].map((filter) => <button key={filter} className={galleryFilter === filter ? "filter-active" : ""} onClick={() => setGalleryFilter(filter)}>{filter}</button>)}
         </div>
         <div className="gallery-grid">
-          {filteredGallery.map((item) => <article className={`gallery-card ${item.size}`} key={item.title}><Photo src={item.image} className="gallery-photo" label={`Temporary gallery image: ${item.title}`} /><div className="gallery-card-overlay"><div><span>{item.category}</span><h3>{item.title}</h3></div><ArrowUpRight size={20} /></div></article>)}
+          {filteredGallery.map((item) => (
+            <button
+              type="button"
+              className={`gallery-card ${item.size}`}
+              key={item.title}
+              onClick={() => setSelectedGalleryItem(item)}
+              aria-label={`View ${item.title}`}
+            >
+              <Photo src={item.image} className="gallery-photo" label={item.title} />
+              <div className="gallery-card-overlay"><div><span>{item.category}</span><h3>{item.title}</h3></div><ArrowUpRight size={20} /></div>
+            </button>
+          ))}
         </div>
-        <p className="demo-note"><span /> These are temporary visual references, not official Band photographs. Replace them with selected, approved images.</p>
+        {selectedGalleryItem && (
+          <div className="gallery-lightbox" role="dialog" aria-modal="true" aria-label={selectedGalleryItem.title} onClick={() => setSelectedGalleryItem(null)}>
+            <button type="button" className="gallery-lightbox-close" aria-label="Close gallery" onClick={() => setSelectedGalleryItem(null)}><X size={22} /></button>
+            <div className="gallery-lightbox-content" onClick={(event) => event.stopPropagation()}>
+              <Photo src={selectedGalleryItem.image} className="gallery-lightbox-photo" label={selectedGalleryItem.title} />
+              <div><span>{selectedGalleryItem.category}</span><h3>{selectedGalleryItem.title}</h3></div>
+            </div>
+          </div>
+        )}
       </section>
 
       <section className="newsletter-section">

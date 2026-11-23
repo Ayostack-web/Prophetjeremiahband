@@ -49,7 +49,7 @@ export function Hero() {
         <div className="hero-copy">
           <div className="hero-kicker"><span className="kicker-line" /> FAITH · MUSIC · PURPOSE</div>
           <h1>A legacy of praise.<br /><em>A calling that speaks.</em></h1>
-          <p className="hero-description">Welcome to the digital home of Prophet Jeremiah Band — Oracle of God. Discover our story, celebrate our journey and stay connected to what is ahead.</p>
+          <p className="hero-description">Prophet Jeremiah Band is a ministry united by purpose, heritage and the enduring sound of praise. Discover the people and moments behind our journey.</p>
           <div className="hero-actions">
             <a className="button button-cyan" href="#about">Discover our story <ArrowUpRight size={17} /></a>
             <a className="button button-ghost" href="#gallery"><span className="play-icon"><Play size={12} fill="currentColor" /></span> Explore our moments</a>
