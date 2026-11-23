@@ -17,8 +17,8 @@
   --font-display: Georgia, "Times New Roman", serif;
   --blue-950: #172554;
   --blue-900: #1e3a8a;
-  --card-shadow: 0 24px 54px rgba(23,37,84,.42), 0 10px 22px rgba(30,58,138,.20);
-  --card-shadow-hover: 0 34px 72px rgba(23,37,84,.50), 0 14px 28px rgba(30,58,138,.24);
+  --card-shadow: 0 24px 54px rgba(23,37,84,.42), 0 10px 22px rgba(23,37,84,.20);
+  --card-shadow-hover: 0 34px 72px rgba(23,37,84,.50), 0 14px 28px rgba(23,37,84,.24);
 }
 
 * { box-sizing: border-box; }
@@ -144,7 +144,7 @@ button { cursor: pointer; }
   bottom: -18px;
   height: 36px;
   border-radius: 50%;
-  background: rgba(23,37,84,.18);
+  background: rgba(23,37,84,.24);
   filter: blur(22px);
   pointer-events: none;
 }
