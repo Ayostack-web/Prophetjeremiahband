@@ -19,6 +19,7 @@ import {
   X,
 } from "lucide-react";
 import { Photo, SectionLabel, SectionTitle, photos } from "./shared";
+import { MotionReveal } from "./motion-reveal";
 
 const events = [
   { day: "14", month: "DEC", title: "Annual Thanksgiving Service", type: "Worship & Praise", time: "10:00 AM", image: photos.eventOne },
@@ -104,15 +105,17 @@ export function MainSections() {
             <a className="text-link heading-link" href="#contact">All updates <ArrowUpRight size={16} /></a>
           </div>
           <div className="updates-grid">
-            <article className="update-feature">
+            <MotionReveal className="update-feature-wrap">
+            <article className="update-feature premium-border">
               <div className="update-feature-image" style={{ backgroundImage: `url("${photos.eventOne}")` }}><span className="image-tag">FEATURED UPDATE</span></div>
               <div className="update-feature-copy"><span className="meta-line">BAND ANNOUNCEMENT <i /> 21 NOVEMBER 2026</span><h3>Stay close to the moments that bring us together.</h3><p>Important announcements and updates from the Band will be shared here. Check back for the latest information.</p><a href="#contact" className="text-link">Stay informed <ArrowUpRight size={16} /></a></div>
             </article>
-            <div className="update-list">
+            </MotionReveal>
+            <MotionReveal className="update-list" delay={0.08}>
               <article className="update-list-item"><span className="update-date"><strong>01</strong><small>NOTE</small></span><div><span className="meta-line">COMMUNITY</span><h3>A home for our shared memories</h3><p>Our digital archive will keep important records and milestones in one place.</p></div><ArrowUpRight size={17} /></article>
               <article className="update-list-item"><span className="update-date"><strong>02</strong><small>NOTE</small></span><div><span className="meta-line">MEDIA</span><h3>Stories told through sound and image</h3><p>Explore recordings, photographs and videos from the Band's journey.</p></div><ArrowUpRight size={17} /></article>
               <article className="update-list-item"><span className="update-date"><strong>03</strong><small>NOTE</small></span><div><span className="meta-line">HERITAGE</span><h3>Honouring those who came before</h3><p>Past leadership and memorable seasons will have a lasting place here.</p></div><ArrowUpRight size={17} /></article>
-            </div>
+            </MotionReveal>
           </div>
         </div>
       </section>
@@ -122,14 +125,14 @@ export function MainSections() {
           <SectionTitle eyebrow="MARK YOUR CALENDAR" title="Gather. Celebrate. Grow." text="Keep up with upcoming programmes and important Band dates." />
           <a className="button button-outline" href="#contact">View event details <ArrowUpRight size={16} /></a>
         </div>
-        <div className="events-grid">
+        <MotionReveal className="events-grid" delay={0.06}>
           {events.map((event) => (
             <article className="event-card" key={event.title}>
               <div className="event-image-wrap"><Photo src={event.image} className="event-image" label={`Temporary event image for ${event.title}`} /><span className="event-date"><strong>{event.day}</strong><small>{event.month}</small></span></div>
               <div className="event-card-copy"><span className="event-type">{event.type}</span><h3>{event.title}</h3><div className="event-time"><Clock3 size={14} /> {event.time} <span>·</span> Date to be confirmed</div><a href="#contact" aria-label={`Ask about ${event.title}`}><ArrowUpRight size={18} /></a></div>
             </article>
           ))}
-        </div>
+        </MotionReveal>
         <p className="demo-note"><span /> Sample dates and event titles are placeholders for this design preview. Replace them with confirmed Band programmes.</p>
       </section>
 
@@ -139,7 +142,7 @@ export function MainSections() {
             <SectionTitle eyebrow="THE PEOPLE WHO SERVE" title="Leadership & legacy" text="Recognising those entrusted with guiding and serving the Band." light />
             <a className="button button-dark-outline" href="#contact">Meet the leadership <ArrowUpRight size={16} /></a>
           </div>
-          <div className="leadership-grid">
+          <MotionReveal className="leadership-grid" delay={0.08}>
             {[["C", "Captain"], ["V", "Vice-Captain"], ["S", "Secretary"], ["P", "Patron"], ["M", "Matron"]].map(([initial, role], index) => (
               <article className="leader-card" key={role}>
                 <div className={`leader-avatar leader-avatar-${index + 1}`}><span>{initial}</span><div className="avatar-corner" /></div>
@@ -147,7 +150,7 @@ export function MainSections() {
                 <ArrowUpRight className="leader-arrow" size={17} />
               </article>
             ))}
-          </div>
+          </MotionReveal>
           <div className="leadership-bottom"><span>HONOURING THE PAST. SERVING THE PRESENT. PREPARING THE FUTURE.</span><a href="#archive">Explore past leadership <ArrowRight size={15} /></a></div>
         </div>
       </section>
@@ -199,7 +202,7 @@ export function MainSections() {
         <div className="gallery-filters" role="group" aria-label="Filter gallery images">
           {["All", "Worship", "Fellowship", "Events"].map((filter) => <button key={filter} className={galleryFilter === filter ? "filter-active" : ""} onClick={() => setGalleryFilter(filter)}>{filter}</button>)}
         </div>
-        <div className="gallery-grid">
+        <MotionReveal className="gallery-grid" delay={0.05}>
           {filteredGallery.map((item) => (
             <button
               type="button"
@@ -212,7 +215,7 @@ export function MainSections() {
               <div className="gallery-card-overlay"><div><span>{item.category}</span><h3>{item.title}</h3></div><ArrowUpRight size={20} /></div>
             </button>
           ))}
-        </div>
+        </MotionReveal>
         {selectedGalleryItem && (
           <div className="gallery-lightbox" role="dialog" aria-modal="true" aria-label={selectedGalleryItem.title} onClick={() => setSelectedGalleryItem(null)}>
             <button type="button" className="gallery-lightbox-close" aria-label="Close gallery" onClick={() => setSelectedGalleryItem(null)}><X size={22} /></button>
