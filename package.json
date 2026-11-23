@@ -1,0 +1,10 @@
+{
+  "name": "prophet-jeremiah-band-starter",
+  "private": true,
+  "scripts": {
+    "dev": "npm --prefix pjb-band-starter run dev",
+    "build": "npm --prefix pjb-band-starter run build",
+    "start": "npm --prefix pjb-band-starter run start",
+    "lint": "npm --prefix pjb-band-starter run lint"
+  }
+}
