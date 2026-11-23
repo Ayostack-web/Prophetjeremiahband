@@ -13,8 +13,8 @@
   --surface: #eff6ff;
   --white: #ffffff;
   --font-display: Georgia, "Times New Roman", serif;
-  --card-shadow: 0 24px 54px rgba(8,15,99,.20), 0 8px 18px rgba(8,15,99,.10);
-  --card-shadow-hover: 0 32px 68px rgba(8,15,99,.26), 0 12px 22px rgba(8,15,99,.12);
+  --card-shadow: 0 24px 54px rgba(23,37,84,.30), 0 8px 18px rgba(23,37,84,.16);
+  --card-shadow-hover: 0 34px 72px rgba(23,37,84,.38), 0 12px 24px rgba(23,37,84,.18);
 }
 
 * { box-sizing: border-box; }
@@ -166,7 +166,6 @@ button { cursor: pointer; }
   position: relative;
   z-index: 1;
   padding-top: 105px;
-  box-shadow: 0 24px 56px rgba(23,37,84,.14);
 }
 .button-outline { color: var(--brand-blue); border-color: #cbd3e7; background: white; }
 .button-outline:hover { border-color: var(--brand-blue); background: #f7f8ff; }
